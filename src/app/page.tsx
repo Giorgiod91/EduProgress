@@ -1,10 +1,8 @@
-import LandingPage from "components/LandingPage";
-import StudyBoard from "components/StudyBoard";
+import LandingPage from "~/app/components/LandingPage";
+import StudyBoard from "~/app/components/StudyBoard";
 import Link from "next/link";
-
-import { LatestPost } from "~/app/_components/post";
 import { getServerAuthSession } from "~/server/auth";
-import { api, HydrateClient } from "~/trpc/server";
+import { api } from "~/trpc/server";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
