@@ -36,57 +36,90 @@ function StudyBoard({}: Props) {
   return (
     <div className="mx-auto max-w-5xl p-4">
       <h1 className="mb-8 text-4xl font-bold text-gray-800">Study Board</h1>
-      <div className="overflow-x-auto">
-        <table className="min-w-full rounded-lg bg-white shadow-md">
-          <thead className="bg-gray-200">
-            <tr>
-              {titles.map((title) => (
-                <th
-                  key={title}
-                  className="px-4 py-2 text-left text-sm font-semibold text-gray-700"
-                >
-                  {title}
-                </th>
-              ))}
-              <th className="px-4 py-2"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {tasks
-              .filter((task) => task.status !== "Completed")
-              .map((task) => (
-                <tr key={task.id} className="border-t hover:bg-gray-50">
-                  <td className="px-4 py-2 text-gray-700">{task.title}</td>
-                  <td
-                    className={`rounded-xl px-4 py-2 text-gray-700 ${
-                      task.subject.includes("Math")
-                        ? "bg-blue-100"
-                        : task.subject.includes("Science")
-                          ? "bg-green-100"
-                          : task.subject.includes("English")
-                            ? "bg-yellow-100"
-                            : task.subject.includes("History")
-                              ? "bg-red-100"
-                              : ""
-                    }`}
-                  >
-                    {task.subject}
-                  </td>
-                  <td className="px-4 py-2 text-gray-700">{task.time}</td>
-                  <td className="px-4 py-2 text-gray-700">{task.date}</td>
-                  <td className="px-4 py-2 text-gray-700">{task.status}</td>
-                  <td className="px-4 py-2">
-                    <button
-                      onClick={() => handleFinish(task.id)}
-                      className="rounded-lg bg-green-500 px-3 py-1 font-semibold text-white transition duration-200 hover:bg-green-600"
-                    >
-                      Finish
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+      <div className="">
+        <div className="flex flex-col">
+          <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+              <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      {titles.map((title) => (
+                        <th
+                          key={title}
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                        >
+                          {title}
+                        </th>
+                      ))}
+                      <th scope="col" className="relative px-6 py-3">
+                        <span className="sr-only">Action</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200 bg-white">
+                    {tasks.map((task) => (
+                      <tr key={task.id}>
+                        <td className="whitespace-nowrap px-6 py-4">
+                          <div className="text-sm text-gray-900">
+                            {task.title}
+                          </div>
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4">
+                          <span
+                            className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${
+                              task.subject.includes("Math")
+                                ? "bg-blue-100 text-blue-800"
+                                : task.subject.includes("Science")
+                                  ? "bg-green-100 text-green-800"
+                                  : task.subject.includes("English")
+                                    ? "bg-yellow-100 text-yellow-800"
+                                    : task.subject.includes("History")
+                                      ? "bg-red-100 text-red-800"
+                                      : "bg-gray-100 text-gray-800"
+                            }`}
+                          >
+                            {task.subject}
+                          </span>
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                          {task.time}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                          {task.date}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                          <span
+                            className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${
+                              task.status === "In Progress"
+                                ? "bg-yellow-100 text-yellow-800"
+                                : task.status === "Completed"
+                                  ? "bg-green-100 text-green-800"
+                                  : "bg-gray-100 text-gray-800"
+                            }`}
+                          >
+                            {task.status}
+                          </span>
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                          {task.status === "In Progress" && (
+                            <button
+                              onClick={() => handleFinish(task.id)}
+                              className="text-indigo-600 hover:text-indigo-900"
+                            >
+                              Mark as Completed
+                            </button>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
