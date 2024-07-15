@@ -23,6 +23,7 @@ model Module {
   subject  String
   completed Boolean  @default(false)
   userId    String
+  color   String?
   completedCount Int @default(0)
 
   

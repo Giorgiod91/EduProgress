@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Chart } from "chart.js/auto";
+import { api } from "~/trpc/react";
 
 interface DataEntry {
   date: string;
@@ -12,8 +13,20 @@ interface DashChartProps {
 }
 
 const DashChart = ({ data }: DashChartProps) => {
+  const { data: completedData, isLoading: isLoadingCompleted } =
+    api.module.getCompletedCount.useQuery();
   const chartRef = useRef<HTMLCanvasElement>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
+
+  // State to hold the completed count
+  const [completedCount, setCompletedCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Update the completed count when data is fetched
+    if (completedData) {
+      setCompletedCount(completedData.completedCount);
+    }
+  }, [completedData]);
 
   useEffect(() => {
     const ctx = chartRef.current?.getContext("2d");
@@ -33,10 +46,17 @@ const DashChart = ({ data }: DashChartProps) => {
         labels: data.map((entry) => entry.date),
         datasets: [
           {
-            label: "Progress",
+            label: "Goal",
             data: data.map((entry) => entry.progress),
             borderColor: "rgba(75, 192, 192, 1)",
             backgroundColor: "rgba(75, 192, 192, 0.2)",
+            fill: true,
+          },
+          {
+            label: "Completed Modules",
+            data: data.map(() => completedCount), // Use the completed count for all dates
+            borderColor: "rgba(255, 99, 132, 1)",
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
             fill: true,
           },
         ],
@@ -52,7 +72,7 @@ const DashChart = ({ data }: DashChartProps) => {
           y: {
             title: {
               display: true,
-              text: "Progress",
+              text: "Goal",
             },
             beginAtZero: true,
           },
@@ -66,7 +86,7 @@ const DashChart = ({ data }: DashChartProps) => {
         chartInstanceRef.current.destroy();
       }
     };
-  }, [data]);
+  }, [data, completedCount]); // Update chart when data or completedCount changes
 
   return <canvas ref={chartRef} width="400" height="200"></canvas>;
 };
