@@ -8,7 +8,7 @@ function DashGrafic({}: Props) {
       <div className="stats w-full overflow-hidden shadow">
         <div className="stat w-[200px]">
           <div className="stat-figure text-primary"></div>
-          <div className="stat-title">Total Likes</div>
+          <div className="stat-title">Total Modules Done</div>
           <div className="stat-value text-primary">25.6K</div>
           <div className="stat-desc">21% more than last month</div>
         </div>
@@ -29,7 +29,7 @@ function DashGrafic({}: Props) {
             </div>
           </div>
           <div className="stat-value">86%</div>
-          <div className="stat-title">Tasks done</div>
+          <div className="stat-title">Modules done</div>
           <div className="stat-desc text-secondary">31 tasks remaining</div>
         </div>
       </div>
