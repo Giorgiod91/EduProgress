@@ -15,15 +15,20 @@ datasource db {
 }
 
 model Module {
-  id        Int      @id @map("_id")
-  name      String
+   id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  subject  String
+  completed Boolean  @default(false)
+  userId    String
+
+  
 
   createdBy   User   @relation(fields: [createdById], references: [id])
   createdById String
 
-  @@index([name])
+  @@index([title])
 }
 // Necessary for Next auth
 model Account {
