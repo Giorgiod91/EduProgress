@@ -34,15 +34,14 @@ function StudyBoard({}: Props) {
   };
 
   return (
-    <div className="mx-auto max-w-5xl p-4">
-      <h1 className="mb-8 text-4xl font-bold text-gray-800">Study Board</h1>
+    <div className="mx-auto max-w-5xl">
       <div className="">
         <div className="flex flex-col">
           <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
               <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
                 <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
+                  <thead className="bg-base-200">
                     <tr>
                       {titles.map((title) => (
                         <th
@@ -106,7 +105,7 @@ function StudyBoard({}: Props) {
                           {task.status === "In Progress" && (
                             <button
                               onClick={() => handleFinish(task.id)}
-                              className="text-indigo-600 hover:text-indigo-900"
+                              className="btn btn-secondary w-[150px]"
                             >
                               Mark as Completed
                             </button>
