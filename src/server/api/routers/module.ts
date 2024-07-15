@@ -35,18 +35,16 @@ export const moduleRouter = createTRPCRouter({
   update: protectedProcedure
     .input(
       z.object({
-        taskId: z.string().refine((val) => !isNaN(Number(val)), {
-          message: "taskId must be a number",
-        }),
+        moduleId: z.string(),
         completed: z.boolean(),
       }),
     )
     .mutation(async ({ input, ctx }) => {
-      const { taskId, completed } = input;
-      const task = await ctx.db.module.update({
-        where: { id: String(taskId) },
+      const { moduleId, completed } = input;
+      const module = await ctx.db.module.update({
+        where: { id: moduleId },
         data: { completed },
       });
-      return task;
+      return module;
     }),
 });
