@@ -43,7 +43,7 @@ export const moduleRouter = createTRPCRouter({
       const { moduleId, completed } = input;
       const module = await ctx.db.module.update({
         where: { id: moduleId },
-        data: { completed },
+        data: { completed, completedCount: { increment: 1 } },
       });
       return module;
     }),
