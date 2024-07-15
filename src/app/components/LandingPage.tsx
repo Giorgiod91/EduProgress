@@ -1,13 +1,10 @@
+import Link from "next/link";
 import React from "react";
 
 type Props = {};
 
 function LandingPage({}: Props) {
-  return (
-    <div>
-      <h1 className="text-red-700">asdad</h1>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default LandingPage;

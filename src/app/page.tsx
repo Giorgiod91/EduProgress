@@ -6,6 +6,8 @@ import { api } from "~/trpc/server";
 import DashBoard from "./components/DashBoard";
 import CreateModule from "./components/CreateModule";
 import Navbar from "./components/Navbar";
+import Banner1 from "./components/Banner1";
+import Demo from "./components/Demo";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -16,10 +18,13 @@ export default async function Home() {
       <section className="h-screen">
         <LandingPage />
       </section>
-      <section className="h-screen">
-        <StudyBoard />
+      <section>
+        <Banner1 />
       </section>
-      <section className="">
+      <section className="h-screen">
+        <Demo />
+      </section>
+      <section className="h-screen">
         <DashBoard />
       </section>
       <section>

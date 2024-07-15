@@ -82,7 +82,6 @@ function DashBoard({}: Props) {
         {/* Middle section */}
         <section className="m-5 h-5/6 flex-1 rounded-lg border bg-gray-300 p-5 shadow-lg">
           <div className="flex items-center justify-center">
-            <StudyBoard />
             <StudyBoardDb />
           </div>
         </section>
