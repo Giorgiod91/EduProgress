@@ -7,6 +7,8 @@ type Props = {};
 function DashGrafic({}: Props) {
   const { data: completedData, isLoading: isLoadingCompleted } =
     api.module.getCompletedCount.useQuery();
+  const { data: completedCountData } = api.module.getCompletedCount.useQuery();
+  console.log(completedCountData);
   const { data: allData, isLoading: isLoadingAll } =
     api.module.getAll.useQuery();
   const totalModules = allData?.length || 0;
@@ -20,7 +22,9 @@ function DashGrafic({}: Props) {
         <div className="stat w-[200px]">
           <div className="stat-figure text-primary"></div>
           <div className="stat-title">Total Modules Done</div>
-          <div className="stat-value text-primary">{completedModules}</div>
+          <div className="stat-value text-primary">
+            {completedCountData?.completedCount || 0}
+          </div>
           <div className="stat-desc">21% more than last month</div>
         </div>
 

@@ -68,9 +68,26 @@ export const moduleRouter = createTRPCRouter({
           where: { id: moduleId },
           data: {
             completed,
-            completedCount: { increment: 1 },
           },
         });
+
+        // Increment the completedModuleCount for the user
+        if (completed) {
+          const user = await ctx.db.user.findUnique({
+            where: { id: ctx.session.user.id },
+          });
+
+          if (!user) {
+            throw new Error("User not found");
+          }
+
+          const updatedUser = await ctx.db.user.update({
+            where: { id: ctx.session.user.id },
+            data: {
+              completedModuleCount: user.completedModuleCount + 1,
+            },
+          });
+        }
 
         return updatedModule;
       } catch (error) {
@@ -80,11 +97,10 @@ export const moduleRouter = createTRPCRouter({
     }),
 
   getCompletedCount: protectedProcedure.query(async ({ ctx }) => {
-    const totalCompletedCount = await ctx.db.module.aggregate({
-      _sum: {
-        completedCount: true,
-      },
+    const user = await ctx.db.user.findUnique({
+      where: { id: ctx.session.user.id },
     });
-    return { completedCount: totalCompletedCount._sum.completedCount || 0 };
+
+    return { completedCount: user?.completedModuleCount || 0 };
   }),
 });

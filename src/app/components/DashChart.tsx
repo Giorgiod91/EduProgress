@@ -13,7 +13,7 @@ interface DashChartProps {
 }
 
 const DashChart = ({ data }: DashChartProps) => {
-  const { data: completedData, isLoading: isLoadingCompleted } =
+  const { data: completedCountData, refetch: refetchCompletedCount } =
     api.module.getCompletedCount.useQuery();
   const chartRef = useRef<HTMLCanvasElement>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
@@ -23,10 +23,10 @@ const DashChart = ({ data }: DashChartProps) => {
 
   useEffect(() => {
     // Update the completed count when data is fetched
-    if (completedData) {
-      setCompletedCount(completedData.completedCount);
+    if (completedCountData) {
+      setCompletedCount(completedCountData.completedCount);
     }
-  }, [completedData]);
+  }, [completedCountData]);
 
   useEffect(() => {
     const ctx = chartRef.current?.getContext("2d");
