@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Banner1 from "./components/Banner1";
 import Demo from "./components/Demo";
 import PaymentCards from "./components/PaymentCards";
+import Faq from "./components/Faq";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -33,6 +34,9 @@ export default async function Home() {
       </section>
       <section>
         <PaymentCards />
+      </section>
+      <section>
+        <Faq />
       </section>
     </main>
   );
