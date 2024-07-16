@@ -18,7 +18,7 @@ function DashBoard({}: Props) {
       <h1 className="items-center justify-center">dddd</h1>
       <div className="flex h-screen w-full">
         {/* Left section (ul) */}
-        <section className="w-1/7 m-5 h-5/6 rounded-lg border bg-gray-200 p-5 shadow-lg">
+        <section className="w-1/7 m-5 h-5/6 rounded-lg border-4 border-primary bg-gray-200 p-5 shadow-lg">
           <ul className="menu w-56 rounded-box bg-base-200">
             <li>
               <a>
@@ -77,16 +77,35 @@ function DashBoard({}: Props) {
                 FeedBack
               </a>
             </li>
+            <li>
+              <a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
+                Set Monthly Goal
+              </a>
+            </li>
           </ul>
         </section>
         {/* Middle section */}
-        <section className="m-5 h-5/6 flex-1 rounded-lg border bg-gray-300 p-5 shadow-lg">
+        <section className="m-5 h-5/6 flex-1 rounded-lg border-4 border-primary bg-gray-300 p-5 shadow-lg">
           <div className="flex items-center justify-center">
             <StudyBoardDb />
           </div>
         </section>
         {/* Right section */}
-        <section className="m-5 h-5/6 w-3/6 overflow-hidden rounded-lg border bg-gray-200 p-5 shadow-lg">
+        <section className="m-5 h-5/6 w-3/6 overflow-hidden rounded-lg border-4 border-primary bg-gray-200 p-5 shadow-lg">
           <div className="flex h-screen flex-col overflow-hidden">
             <div className="flex h-1/5 overflow-hidden">
               <DashGrafic />
