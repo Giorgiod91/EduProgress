@@ -15,10 +15,13 @@ function DashBoard({}: Props) {
   ];
   return (
     <div className="">
-      <h1 className="items-center justify-center">dddd</h1>
+      <h1 className="flex items-center justify-center text-7xl">Dashoboard</h1>
       <div className="flex h-screen w-full">
         {/* Left section (ul) */}
         <section className="w-1/7 m-5 h-5/6 rounded-lg border-4 border-primary bg-gray-200 p-5 shadow-lg">
+          <h1 className="flex items-center justify-center text-xl text-primary">
+            Navigation
+          </h1>
           <ul className="menu w-56 rounded-box bg-base-200">
             <li>
               <a>
@@ -100,12 +103,16 @@ function DashBoard({}: Props) {
         </section>
         {/* Middle section */}
         <section className="m-5 h-5/6 flex-1 rounded-lg border-4 border-primary bg-gray-300 p-5 shadow-lg">
+          <h1 className="flex items-center justify-center text-xl text-primary">
+            Modules
+          </h1>
           <div className="flex items-center justify-center">
             <StudyBoardDb />
           </div>
         </section>
         {/* Right section */}
         <section className="m-5 h-5/6 w-3/6 overflow-hidden rounded-lg border-4 border-primary bg-gray-200 p-5 shadow-lg">
+          <h1 className="flex justify-center text-xl text-primary">Progress</h1>
           <div className="flex h-screen flex-col overflow-hidden">
             <div className="flex h-1/5 overflow-hidden">
               <DashGrafic />

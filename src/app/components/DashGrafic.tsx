@@ -12,10 +12,15 @@ function DashGrafic({}: Props) {
   const { data: allData, isLoading: isLoadingAll } =
     api.module.getAll.useQuery();
   const totalModules = allData?.length || 0;
+  // fetching the completed modules
+  const temporary = allData?.filter((module) => module.completed)?.length || 0;
+  // fetching the not completed modules
+  const notcompleted =
+    allData?.filter((module) => !module.completed)?.length || 0;
   const completedModules = completedData?.completedCount || 0;
+  // calculating the percentage of the completed modules
   const completionPercentage =
-    totalModules > 0 ? ((completedModules / totalModules) * 100).toFixed(2) : 0;
-  const remainingModules = totalModules - completedModules;
+    totalModules > 0 ? ((temporary / totalModules) * 100).toFixed(2) : 0;
   return (
     <div className="w-full overflow-hidden">
       <div className="stats w-full overflow-hidden shadow">
@@ -46,7 +51,7 @@ function DashGrafic({}: Props) {
           <div className="stat-value">{completionPercentage}%</div>
           <div className="stat-title">Modules done</div>
           <div className="stat-desc text-secondary">
-            {remainingModules} Modules remaining
+            {notcompleted} Modules remaining
           </div>
         </div>
       </div>
