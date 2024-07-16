@@ -8,7 +8,7 @@ function Demo2({}: Props) {
       <img src="/demoshot.png" alt="" />
 
       <div className="max-w-lg space-y-6 md:space-y-8">
-        <h2 className="text-3xl font-black leading-tight tracking-tight md:text-5xl md:leading-tight">
+        <h2 className="pt-11 text-3xl font-black leading-tight tracking-tight md:text-5xl md:leading-tight">
           Track your Study
         </h2>
         <p className="text-base-content-secondary leading-relaxed">
