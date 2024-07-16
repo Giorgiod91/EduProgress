@@ -40,7 +40,7 @@ function LandingPage({}: Props) {
           </div>
         </div>
         <div className="flex w-full items-center justify-center md:w-1/2">
-          <div className="rounded-lg border border-primary shadow-xl">
+          <div className="w-full rounded-lg border border-primary shadow-xl md:w-auto">
             <StudyBoard />
           </div>
         </div>

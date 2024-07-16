@@ -10,6 +10,7 @@ import Banner1 from "./components/Banner1";
 import Demo from "./components/Demo";
 import PaymentCards from "./components/PaymentCards";
 import Faq from "./components/Faq";
+import Demo2 from "./components/Demo2";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -27,6 +28,10 @@ export default async function Home() {
       <section id="demo" className="h-3/5 p-20">
         <Demo />
       </section>
+      <section className="h-3/5 p-20">
+        <Demo2 />
+      </section>
+
       <section className="h-screen">
         <DashBoard />
       </section>

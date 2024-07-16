@@ -79,7 +79,7 @@ export default async function Navbar() {
               href="/api/auth/signout"
               className="btn btn-wide flex items-center bg-primary text-white"
             >
-              <img src="./logo2.jpg" className="w-5" alt="applogo" />
+              <img src="./logo.jpg" className="w-5" alt="applogo" />
               <span className="ml-2">Sign Out</span>
             </Link>
           </button>
@@ -89,7 +89,7 @@ export default async function Navbar() {
               href="/api/auth/signin"
               className="btn btn-wide flex items-center bg-primary text-white hover:bg-secondary"
             >
-              <img src="./logo2.jpg" className="w-5" alt="applogo" />
+              <img src="./logo.jpg" className="w-5" alt="applogo" />
               <span className="ml-2">Sign In</span>
             </Link>
           </button>
