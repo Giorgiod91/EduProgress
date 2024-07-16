@@ -9,8 +9,8 @@ function Banner1({}: Props) {
         <div className="mb-8 text-center"></div>
         <div className="flex justify-around">
           <div className="text-center">
-            <div className="mx-auto h-16 w-16 rounded-full bg-gray-200 p-4">
-              <img src="/calendar.svg" alt="" />
+            <div className="mx-auto h-16 w-16 rounded-full border border-orange-500 bg-gray-200 p-4">
+              <img src="/subject1.svg" alt="" />
             </div>
             <h3 className="mt-4 text-xl font-semibold">Organize Your Tasks</h3>
             <p className="mt-2">
@@ -18,43 +18,19 @@ function Banner1({}: Props) {
             </p>
           </div>
           <div className="text-center">
-            <div className="mx-auto h-16 w-16 rounded-full bg-gray-200 p-4">
+            <div className="mx-auto h-16 w-16 rounded-full border border-orange-500 bg-gray-200 p-4">
               {" "}
-              <svg
-                className="h-full w-full text-gray-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 14l9-5-9-5-9 5 9 5zM5 12h14"
-                />
-              </svg>
+              <img src="/prorgress1.svg" alt="" />
             </div>
-            <h3 className="mt-4 text-xl font-semibold">Track Subjects</h3>
+            <h3 className="mt-4 text-xl font-semibold">Track Progress</h3>
             <p className="mt-2">
               Keep track of tasks across different subjects effortlessly.
             </p>
           </div>
           <div className="text-center">
-            <div className="mx-auto h-16 w-16 rounded-full bg-gray-200 p-4">
+            <div className="mx-auto h-16 w-16 rounded-full border border-orange-500 bg-gray-200 p-4">
               {" "}
-              <svg
-                className="h-full w-full text-gray-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 12h14M12 5l7 7-7 7-7-7 7-7z"
-                />
-              </svg>
+              <img src="/time1.svg" alt="" />
             </div>
             <h3 className="mt-4 text-xl font-semibold">Manage Your Time</h3>
             <p className="mt-2">

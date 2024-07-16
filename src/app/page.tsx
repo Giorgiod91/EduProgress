@@ -20,19 +20,20 @@ export default async function Home() {
       <section className="h-screen">
         <LandingPage />
       </section>
-      <section>
+      <section className="">
         <Banner1 />
       </section>
-      <section className="h-screen">
+
+      <section id="demo" className="h-3/5 p-20">
         <Demo />
       </section>
       <section className="h-screen">
         <DashBoard />
       </section>
-      <section>
+      <section id="Create" data-theme="" className="">
         {session ? <CreateModule /> : <div>Need to be logged in</div>}
       </section>
-      <section>
+      <section id="Payment">
         <PaymentCards />
       </section>
       <section>

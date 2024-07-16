@@ -27,7 +27,7 @@ function Demo({}: Props) {
           plan and mark them as finished.
         </p>
         <a
-          href="/#signup"
+          href="#Payment"
           className="btn btn-primary btn-block shadow-lg md:btn-wide"
         >
           Track your own

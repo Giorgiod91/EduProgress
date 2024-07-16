@@ -29,69 +29,69 @@ export default async function Navbar() {
             className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
           >
             <li>
-              <a href="#demo">Demo</a>
+              <Link href="#demo">Demo</Link>
             </li>
             <li>
-              <a className="" href="#payment">
-                Pricing
-              </a>
+              <Link href="#Payment">Pricing</Link>
             </li>
             <li>
-              <a>about</a>
+              <Link href="#about">About</Link>
             </li>
           </ul>
         </div>
         <img className="w-12" src="./logo2.jpg" alt="logo" />
-        <a className="btn btn-ghost text-xl tracking-tight text-transparent">
+        <Link
+          href="/"
+          className="btn btn-ghost text-xl tracking-tight text-transparent"
+        >
           <span className="flex">
-            <span className="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-red-500 hover:from-blue-500 hover:to-cyan-400 hover:text-white">
+            <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-orange-500 hover:from-yellow-500 hover:to-orange-400 hover:text-white">
               Study
             </span>
             <span className="text-white">Prog</span>
           </span>
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a
+            <Link
               href="#demo"
-              className="from-red-500 to-pink-500 text-xl font-black text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-400"
+              className="from-orange-500 to-yellow-500 text-xl font-black text-white hover:bg-gradient-to-r hover:from-yellow-500 hover:to-orange-400"
             >
               Features
-            </a>
+            </Link>
           </li>
-          <li></li>
           <li>
-            <a
+            <Link
               href="#payment"
-              className="from-red-500 to-pink-500 text-xl font-black text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-400"
+              className="from-orange-500 to-yellow-500 text-xl font-black text-white hover:bg-gradient-to-r hover:from-yellow-500 hover:to-orange-400"
             >
               Pricing
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
         {session ? (
-          <button className="via-magenta-500 btn btn-wide bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-blue-500 hover:to-cyan-400 hover:text-black">
-            <a
-              href="/api/auth/signin"
-              className="btn btn-wide flex items-center bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-blue-500 hover:to-cyan-400 hover:text-black"
+          <button className="btn btn-wide bg-primary">
+            <Link
+              href="/api/auth/signout"
+              className="btn btn-wide flex items-center bg-primary text-white"
             >
               <img src="./logo2.jpg" className="w-5" alt="applogo" />
               <span className="ml-2">Sign Out</span>
-            </a>
+            </Link>
           </button>
         ) : (
-          <button className="via-magenta-500 btn btn-wide bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-blue-500 hover:to-cyan-400 hover:text-black">
-            <a
+          <button className="btn btn-wide bg-primary">
+            <Link
               href="/api/auth/signin"
-              className="btn btn-wide flex items-center bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-blue-500 hover:to-cyan-400 hover:text-black"
+              className="btn btn-wide flex items-center bg-primary text-white hover:bg-secondary"
             >
               <img src="./logo2.jpg" className="w-5" alt="applogo" />
               <span className="ml-2">Sign In</span>
-            </a>
+            </Link>
           </button>
         )}
       </div>

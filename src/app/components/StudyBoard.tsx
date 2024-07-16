@@ -59,7 +59,14 @@ function StudyBoard({}: Props) {
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
                     {tasks.map((task) => (
-                      <tr key={task.id}>
+                      <tr
+                        key={task.id}
+                        className={
+                          task.id === 2
+                            ? "translate-x-1/4 opacity-0 duration-500 hover:translate-x-0 hover:opacity-100"
+                            : ""
+                        }
+                      >
                         <td className="whitespace-nowrap px-6 py-4">
                           <div className="text-sm text-gray-900">
                             {task.title}
