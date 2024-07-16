@@ -24,7 +24,7 @@ model Module {
   completed Boolean  @default(false)
   userId    String
   color   String?
-  completedCount Int @default(0)
+ 
 
   
 
@@ -70,6 +70,7 @@ model User {
     accounts      Account[]
     sessions      Session[]
     modules         Module[]
+    completedModuleCount Int @default(0)
 }
 
 model VerificationToken {

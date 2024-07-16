@@ -6,6 +6,8 @@ type Props = {};
 
 function StudyBoardDb({}: Props) {
   const { data: tasks, isLoading, refetch } = api.module.getAll.useQuery();
+  const { data: completedCountData, refetch: refetchCompletedCount } =
+    api.module.getCompletedCount.useQuery();
   const [remove, setRemove] = useState<string | null>(null);
 
   const updateModuleMutation = api.module.update.useMutation();
@@ -20,6 +22,7 @@ function StudyBoardDb({}: Props) {
         completed: true,
       });
       await refetch();
+      await refetchCompletedCount();
     } catch (error) {
       console.error(error);
     }
@@ -29,6 +32,7 @@ function StudyBoardDb({}: Props) {
     try {
       await deleteModuleMutation.mutateAsync({ moduleId: taskId });
       await refetch();
+      await refetchCompletedCount();
     } catch (error) {
       console.error(error);
     }
