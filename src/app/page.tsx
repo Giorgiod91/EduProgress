@@ -8,6 +8,7 @@ import CreateModule from "./components/CreateModule";
 import Navbar from "./components/Navbar";
 import Banner1 from "./components/Banner1";
 import Demo from "./components/Demo";
+import PaymentCards from "./components/PaymentCards";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -29,6 +30,9 @@ export default async function Home() {
       </section>
       <section>
         {session ? <CreateModule /> : <div>Need to be logged in</div>}
+      </section>
+      <section>
+        <PaymentCards />
       </section>
     </main>
   );
