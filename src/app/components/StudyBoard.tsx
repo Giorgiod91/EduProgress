@@ -4,6 +4,7 @@ import React, { useState } from "react";
 type Props = {};
 
 function StudyBoard({}: Props) {
+  const [hover, setHover] = useState(true);
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -33,6 +34,10 @@ function StudyBoard({}: Props) {
     );
   };
 
+  //
+  //onMouseEnter={() => setHover(false)}
+  //onMouseLeave={() => setHover(true)}
+
   return (
     <div className="mx-auto max-w-5xl">
       <div className="">
@@ -40,7 +45,7 @@ function StudyBoard({}: Props) {
           <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
               <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-                <table className="min-w-full divide-y divide-gray-200">
+                <table className="group min-w-full divide-y divide-gray-200">
                   <thead className="bg-base-200">
                     <tr>
                       {titles.map((title) => (
@@ -63,7 +68,7 @@ function StudyBoard({}: Props) {
                         key={task.id}
                         className={
                           task.id === 2
-                            ? "translate-x-1/4 opacity-0 duration-500 hover:translate-x-0 hover:opacity-100"
+                            ? "translate-x-1/4 opacity-0 duration-500 group-hover:translate-x-0 group-hover:opacity-100"
                             : ""
                         }
                       >
