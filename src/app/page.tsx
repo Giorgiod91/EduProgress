@@ -41,7 +41,7 @@ export default async function Home() {
       <section id="Payment">
         <PaymentCards />
       </section>
-      <section>
+      <section className="h-screen">
         <Faq />
       </section>
     </main>
