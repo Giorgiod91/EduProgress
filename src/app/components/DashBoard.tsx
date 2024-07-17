@@ -14,18 +14,20 @@ function DashBoard({}: Props) {
     { date: "2023-07-03", progress: 30 },
   ];
   return (
-    <div>
-      <h1 className="flex items-center justify-center text-7xl">Dashoboard</h1>
+    <div className="min-h-screen bg-[#758694]" data-theme="">
+      <h1 className="mb-5 mt-10 text-center text-5xl font-bold text-primary">
+        Dashboard
+      </h1>
 
-      <div className="flex h-screen w-full flex-col lg:flex-row">
-        {/* Left section (ul) */}
-        <section className="m-5 flex w-full flex-col items-center rounded-lg border-4 border-primary bg-gray-200 p-5 shadow-lg md:w-1/5">
-          <h1 className="flex items-center justify-center text-xl text-primary">
+      <div className="flex flex-col lg:flex-row">
+        {/* Left section (Navigation) */}
+        <section className="m-5 flex flex-col items-center rounded-lg border-4 border-primary bg-white p-5 shadow-lg lg:w-1/5">
+          <h1 className="mb-4 text-xl font-semibold text-primary">
             Navigation
           </h1>
-          <ul className="menu w-56 rounded-box bg-base-200">
+          <ul className="menu w-full rounded-box bg-base-200">
             <li>
-              <a>
+              <a className="flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -44,7 +46,7 @@ function DashBoard({}: Props) {
               </a>
             </li>
             <li>
-              <a href="#Create">
+              <a href="#Create" className="flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -63,7 +65,7 @@ function DashBoard({}: Props) {
               </a>
             </li>
             <li>
-              <a>
+              <a className="flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -82,7 +84,7 @@ function DashBoard({}: Props) {
               </a>
             </li>
             <li>
-              <a>
+              <a className="flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -102,26 +104,30 @@ function DashBoard({}: Props) {
             </li>
           </ul>
         </section>
-        {/* Middle section */}
-        <section className="m-5 h-5/6 flex-1 rounded-lg border-4 border-primary bg-gray-300 p-5 shadow-lg">
-          <h1 className="flex items-center justify-center text-xl text-primary">
+
+        {/* Middle section (Modules) */}
+        <section className="m-5 flex-1 rounded-lg border-4 border-primary bg-white p-5 shadow-lg">
+          <h1 className="mb-4 text-center text-xl font-semibold text-primary">
             Modules
           </h1>
-          <div className="flex items-center justify-center overflow-scroll md:overflow-hidden">
+          <div className="flex items-center justify-center overflow-auto md:overflow-hidden">
             <StudyBoardDb />
           </div>
         </section>
-        {/* Right section */}
-        <section className="m-5 h-5/6 w-3/6 overflow-x-scroll rounded-lg border-4 border-primary bg-gray-200 p-5 shadow-lg md:overflow-scroll">
-          <h1 className="flex justify-center text-xl text-primary">Progress</h1>
-          <div className="flex h-screen flex-col overflow-hidden">
-            <div className="flex h-1/5 overflow-hidden">
+
+        {/* Right section (Progress) */}
+        <section className="m-5 flex-1 rounded-lg border-4 border-primary bg-white p-5 shadow-lg lg:h-auto lg:overflow-auto">
+          <h1 className="mb-4 text-center text-xl font-semibold text-primary">
+            Progress
+          </h1>
+          <div className="space-y-5">
+            <div className="flex-1">
               <DashGrafic />
             </div>
-            <div className="flex items-center justify-center p-5">
+            <div className="flex items-center justify-center">
               <DashGrafik2 />
             </div>
-            <div className="flex items-center justify-center p-5">
+            <div className="flex-1">
               <DashChart data={sampleData} />
             </div>
           </div>
