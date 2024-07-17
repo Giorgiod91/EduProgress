@@ -14,11 +14,12 @@ function DashBoard({}: Props) {
     { date: "2023-07-03", progress: 30 },
   ];
   return (
-    <div className="">
+    <div>
       <h1 className="flex items-center justify-center text-7xl">Dashoboard</h1>
-      <div className="flex h-screen w-full">
+
+      <div className="flex h-screen w-full flex-col lg:flex-row">
         {/* Left section (ul) */}
-        <section className="w-1/7 m-5 h-5/6 rounded-lg border-4 border-primary bg-gray-200 p-5 shadow-lg">
+        <section className="m-5 flex w-full flex-col items-center rounded-lg border-4 border-primary bg-gray-200 p-5 shadow-lg md:w-1/5">
           <h1 className="flex items-center justify-center text-xl text-primary">
             Navigation
           </h1>
@@ -106,12 +107,12 @@ function DashBoard({}: Props) {
           <h1 className="flex items-center justify-center text-xl text-primary">
             Modules
           </h1>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center overflow-scroll md:overflow-hidden">
             <StudyBoardDb />
           </div>
         </section>
         {/* Right section */}
-        <section className="m-5 h-5/6 w-3/6 overflow-hidden rounded-lg border-4 border-primary bg-gray-200 p-5 shadow-lg">
+        <section className="m-5 h-5/6 w-3/6 overflow-x-scroll rounded-lg border-4 border-primary bg-gray-200 p-5 shadow-lg md:overflow-scroll">
           <h1 className="flex justify-center text-xl text-primary">Progress</h1>
           <div className="flex h-screen flex-col overflow-hidden">
             <div className="flex h-1/5 overflow-hidden">
