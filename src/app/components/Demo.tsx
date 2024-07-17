@@ -28,7 +28,7 @@ function Demo({}: Props) {
         </p>
         <a
           href="#Payment"
-          className="btn btn-primary btn-block shadow-lg md:btn-wide"
+          className="btn btn-primary btn-block shadow-lg md:btn-wide hover:bg-primary/70"
         >
           Track your own
         </a>

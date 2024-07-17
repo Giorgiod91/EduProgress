@@ -21,7 +21,7 @@ function LandingPage({}: Props) {
                 Track your learning progress and stay on top of your study and
                 see what you archived
               </p>
-              <button className="btn btn-wide mb-4 bg-primary text-white hover:bg-black">
+              <button className="btn btn-wide mb-4 bg-primary text-white hover:bg-primary/70">
                 <a href="#EventErstellen">Lets go!</a>
               </button>
               <p className="text-sm text-gray-400">
