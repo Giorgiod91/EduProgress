@@ -1,9 +1,10 @@
 import Link from "next/link";
-import React from "react";
+import React, { use, useEffect } from "react";
 import { getServerAuthSession } from "~/server/auth";
 
 export default async function Navbar() {
   const session = await getServerAuthSession();
+
   return (
     <div className="navbar mx-auto max-w-screen-2xl">
       <div className="navbar-start">
@@ -57,7 +58,7 @@ export default async function Navbar() {
           <li>
             <Link
               href="#demo"
-              className="from-orange-500 to-yellow-500 text-xl font-black text-white hover:bg-gradient-to-r hover:from-yellow-500 hover:to-orange-400"
+              className="text-xl font-black text-white hover:bg-primary"
             >
               Features
             </Link>
@@ -65,7 +66,7 @@ export default async function Navbar() {
           <li>
             <Link
               href="#payment"
-              className="from-orange-500 to-yellow-500 text-xl font-black text-white hover:bg-gradient-to-r hover:from-yellow-500 hover:to-orange-400"
+              className="text-xl font-black text-white hover:bg-primary"
             >
               Pricing
             </Link>
@@ -77,7 +78,7 @@ export default async function Navbar() {
           <button className="btn btn-wide bg-primary">
             <Link
               href="/api/auth/signout"
-              className="btn btn-wide flex items-center bg-primary text-white"
+              className="btn btn-wide flex items-center bg-primary text-white hover:bg-primary/70"
             >
               <img src="./logo.jpg" className="w-5" alt="applogo" />
               <span className="ml-2">Sign Out</span>
@@ -87,7 +88,7 @@ export default async function Navbar() {
           <button className="btn btn-wide bg-primary">
             <Link
               href="/api/auth/signin"
-              className="btn btn-wide flex items-center bg-primary text-white hover:bg-secondary"
+              className="btn btn-wide flex items-center bg-primary text-white hover:bg-primary/70"
             >
               <img src="./logo.jpg" className="w-5" alt="applogo" />
               <span className="ml-2">Sign In</span>
