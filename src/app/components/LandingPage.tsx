@@ -10,10 +10,10 @@ type Props = {};
 function LandingPage({}: Props) {
   return (
     <div data-theme="" className="h-screen text-white">
-      <div className="container mx-auto flex h-screen flex-col p-5 md:flex-row">
+      <div className="container mx-auto flex h-screen flex-col space-x-5 p-5 lg:flex-row">
         <div className="flex w-full flex-col items-center justify-center md:w-1/2">
           <div>
-            <div className="px-8 text-center">
+            <div className="mb-10 flex w-full flex-col items-center px-4 text-center lg:mb-0 lg:w-full lg:items-start lg:text-left">
               <h1 className="mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-5xl font-black tracking-tight text-transparent drop-shadow-xl sm:text-6xl md:text-7xl">
                 Track your Learning Progress
               </h1>

@@ -23,7 +23,7 @@ function DashGrafic({}: Props) {
     totalModules > 0 ? ((temporary / totalModules) * 100).toFixed(2) : 0;
   return (
     <div className="w-full overflow-hidden">
-      <div className="stats w-full overflow-hidden shadow">
+      <div className="stats w-full overflow-x-scroll shadow md:overflow-hidden">
         <div className="stat w-[200px]">
           <div className="stat-figure text-primary"></div>
           <div className="stat-title">Total Modules Done</div>

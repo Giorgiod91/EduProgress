@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { use, useEffect, useState } from "react";
+import { set } from "zod";
 import { api } from "~/trpc/react";
 
 type Props = {};
@@ -27,14 +28,15 @@ function DashGrafik2({}: Props) {
   // calculating the percentage of the completed modules
   const completionPercentage =
     totalModules > 0 ? ((temporary / totalModules) * 100).toFixed(2) : 0;
+
   return (
     <div
       className="radial-progress border-primary bg-red-300 text-primary-content"
       style={
         {
           "--value": completionPercentage,
-          "--size": "12rem",
-          "--thickness": "2rem",
+          "--size": "11rem",
+          "--thickness": "1rem",
         } as StyleProps
       }
       role="progressbar"
