@@ -4,7 +4,10 @@ type Props = {};
 
 function Demo2({}: Props) {
   return (
-    <div className="mx-auto flex max-w-6xl flex-col gap-8 border-4 border-base-content/20 md:flex-row md:gap-16">
+    <div
+      className="tooltip tooltip-open tooltip-primary mx-auto flex max-w-6xl flex-col gap-8 border-4 border-base-content/20 md:flex-row md:gap-16"
+      data-tip="this is how the Member Area looks like"
+    >
       <img src="/demoshot.png" alt="" />
 
       <div className="max-w-lg space-y-6 md:space-y-8">
