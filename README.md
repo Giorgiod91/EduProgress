@@ -1,5 +1,9 @@
 # EduProgress
-![image](https://github.com/user-attachments/assets/b8bec06a-3f14-464c-9fc3-394045db84e8)
+![image](https://github.com/user-attachments/assets/1b094b00-79e8-4d3c-8f8f-85b5054640a7)
+
+![image](https://github.com/user-attachments/assets/6530e502-bfd2-4ca2-a6c9-88716e5e33a5)
+
+
 
 
 - in Progres
