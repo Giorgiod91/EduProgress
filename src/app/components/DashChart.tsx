@@ -18,11 +18,11 @@ const DashChart = ({ data }: DashChartProps) => {
   const chartRef = useRef<HTMLCanvasElement>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
 
-  // State to hold the completed count
+  const { data: userMonthlyGoal } = api.module.getUserGoal.useQuery();
+
   const [completedCount, setCompletedCount] = useState<number | null>(null);
 
   useEffect(() => {
-    // Update the completed count when data is fetched
     if (completedCountData) {
       setCompletedCount(completedCountData.completedCount);
     }
@@ -34,10 +34,10 @@ const DashChart = ({ data }: DashChartProps) => {
       throw new Error("Failed to get 2D context for canvas.");
     }
 
-    // Destroy the previous chart instance if it exists
     if (chartInstanceRef.current) {
       chartInstanceRef.current.destroy();
     }
+    //mostly code snippet from chart.js documentation
 
     // Create a new chart instance
     chartInstanceRef.current = new Chart(ctx, {
@@ -47,14 +47,14 @@ const DashChart = ({ data }: DashChartProps) => {
         datasets: [
           {
             label: "Goal",
-            data: data.map((entry) => entry.progress),
+            data: [userMonthlyGoal?.goal ?? null],
             borderColor: "rgba(75, 192, 192, 1)",
             backgroundColor: "rgba(75, 192, 192, 0.2)",
             fill: true,
           },
           {
             label: "Completed Modules",
-            data: data.map(() => completedCount), // Use the completed count for all dates
+            data: data.map(() => completedCount),
             borderColor: "rgba(255, 99, 132, 1)",
             backgroundColor: "rgba(255, 99, 132, 0.2)",
             fill: true,
@@ -86,7 +86,7 @@ const DashChart = ({ data }: DashChartProps) => {
         chartInstanceRef.current.destroy();
       }
     };
-  }, [data, completedCount]); // Update chart when data or completedCount changes
+  }, [data, completedCount]);
 
   return <canvas ref={chartRef} width="400" height="200"></canvas>;
 };

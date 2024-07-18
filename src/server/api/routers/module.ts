@@ -95,6 +95,29 @@ export const moduleRouter = createTRPCRouter({
         throw new Error("Failed to update module");
       }
     }),
+  updateMonthlyGoal: protectedProcedure
+    .input(
+      z.object({
+        monthlyGoal: z.number(),
+      }),
+    )
+    .mutation(async ({ input, ctx }) => {
+      const { monthlyGoal } = input;
+
+      try {
+        const updatedUser = await ctx.db.user.update({
+          where: { id: ctx.session.user.id },
+          data: {
+            monthlyGoal,
+          },
+        });
+
+        return updatedUser;
+      } catch (error) {
+        console.error("Error updating monthly goal:", error);
+        throw new Error("Failed to update monthly goal");
+      }
+    }),
 
   getCompletedCount: protectedProcedure.query(async ({ ctx }) => {
     const user = await ctx.db.user.findUnique({
@@ -102,5 +125,13 @@ export const moduleRouter = createTRPCRouter({
     });
 
     return { completedCount: user?.completedModuleCount || 0 };
+  }),
+
+  getUserGoal: protectedProcedure.query(async ({ ctx }) => {
+    const user = await ctx.db.user.findUnique({
+      where: { id: ctx.session.user.id },
+    });
+
+    return { goal: user?.monthlyGoal || 0 };
   }),
 });
