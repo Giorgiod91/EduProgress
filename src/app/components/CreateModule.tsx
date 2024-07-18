@@ -7,12 +7,13 @@ type Props = {};
 function CreateModule({}: Props) {
   const [title, setTitle] = useState("");
   const [subject, setSubject] = useState("");
-  const [color, setColor] = useState(""); // Initialize color state
+  const [color, setColor] = useState("");
 
   const { isLoading, refetch: refetchModules } = api.module.getAll.useQuery();
   const createModuleMutation = api.module.create.useMutation();
 
-  const handleCreateModule = async () => {
+  const handleCreateModule = async (e: React.FormEvent) => {
+    e.preventDefault();
     try {
       await createModuleMutation.mutateAsync({
         title,
@@ -24,6 +25,7 @@ function CreateModule({}: Props) {
       setSubject("");
       setColor("");
       await refetchModules();
+      window.location.hash = "#dash";
     } catch (error) {
       console.error("Error creating module:", error);
     }
@@ -47,6 +49,7 @@ function CreateModule({}: Props) {
                 Module Name
               </label>
               <input
+                maxLength={20}
                 id="title"
                 type="text"
                 value={title}
@@ -63,6 +66,7 @@ function CreateModule({}: Props) {
                 Subject
               </label>
               <input
+                maxLength={15}
                 id="subject"
                 type="text"
                 value={subject}

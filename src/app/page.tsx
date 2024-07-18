@@ -32,7 +32,7 @@ export default async function Home() {
         <Demo2 />
       </section>
 
-      <section className="h-screen">
+      <section id="dash" className="h-screen">
         <DashBoard />
       </section>
       <section id="Create" data-theme="" className="h-screen">
