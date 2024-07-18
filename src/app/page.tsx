@@ -40,7 +40,6 @@ export default async function Home() {
         {session ? (
           <>
             <CreateModule />
-            <SetGoals />
           </>
         ) : (
           <div>Need to be logged in</div>
@@ -51,6 +50,9 @@ export default async function Home() {
       </section>
       <section className="h-screen">
         <Faq />
+      </section>
+      <section>
+        <SetGoals />
       </section>
     </main>
   );
