@@ -38,6 +38,7 @@ const DashChart = ({ data }: DashChartProps) => {
       chartInstanceRef.current.destroy();
     }
     //mostly code snippet from chart.js documentation
+    //data: data.map(() => userMonthlyGoal?.goal ?? null),
 
     // Create a new chart instance
     chartInstanceRef.current = new Chart(ctx, {
@@ -47,7 +48,7 @@ const DashChart = ({ data }: DashChartProps) => {
         datasets: [
           {
             label: "Goal",
-            data: [userMonthlyGoal?.goal ?? null],
+            data: data.map(() => userMonthlyGoal?.goal ?? null),
             borderColor: "rgba(75, 192, 192, 1)",
             backgroundColor: "rgba(75, 192, 192, 0.2)",
             fill: true,
