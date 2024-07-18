@@ -71,6 +71,7 @@ model User {
     sessions      Session[]
     modules         Module[]
     completedModuleCount Int @default(0)
+    monthlyGoal Int @default(30)
 }
 
 model VerificationToken {

@@ -11,6 +11,7 @@ import Demo from "./components/Demo";
 import PaymentCards from "./components/PaymentCards";
 import Faq from "./components/Faq";
 import Demo2 from "./components/Demo2";
+import SetGoals from "./components/SetGoals";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -36,7 +37,14 @@ export default async function Home() {
         <DashBoard />
       </section>
       <section id="Create" data-theme="" className="h-screen">
-        {session ? <CreateModule /> : <div>Need to be logged in</div>}
+        {session ? (
+          <>
+            <CreateModule />
+            <SetGoals />
+          </>
+        ) : (
+          <div>Need to be logged in</div>
+        )}
       </section>
       <section id="Payment">
         <PaymentCards />
