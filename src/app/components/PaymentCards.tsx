@@ -68,7 +68,7 @@ function PaymentCards() {
               href={plan.link}
               className="group btn btn-primary btn-block text-white hover:bg-primary/70"
             >
-              <img src="./logo.jpg" className="w-5" alt="applogo" />
+              <img src="./logo2.jpg" className="w-5" alt="applogo" />
               Buy Now
             </a>
           </div>
