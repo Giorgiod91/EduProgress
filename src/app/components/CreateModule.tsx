@@ -25,7 +25,7 @@ function CreateModule({}: Props) {
       setSubject("");
       setColor("");
       await refetchModules();
-      window.location.hash = "#dash";
+      window.location.hash = "#Board";
     } catch (error) {
       console.error("Error creating module:", error);
     }

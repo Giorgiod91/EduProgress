@@ -22,7 +22,7 @@ function LandingPage({}: Props) {
                 see what you archived
               </p>
               <button className="btn btn-wide mb-4 bg-primary text-white hover:bg-primary/70">
-                <a href="#EventErstellen">Lets go!</a>
+                <a href="#Payment">Lets go!</a>
               </button>
               <p className="text-sm text-gray-400">
                 aviable on the following platforms

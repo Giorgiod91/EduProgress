@@ -33,19 +33,7 @@ export default async function Home() {
         <Demo2 />
       </section>
 
-      <section id="dash" className="h-screen">
-        <DashBoard />
-      </section>
-      <section id="Create" data-theme="" className="h-screen">
-        {session ? (
-          <>
-            <CreateModule />
-          </>
-        ) : (
-          <div>Need to be logged in</div>
-        )}
-      </section>
-      <section id="Payment">
+      <section id="Payment" data-theme="">
         <PaymentCards />
       </section>
       <section className="h-screen">

@@ -65,7 +65,7 @@ export default async function Navbar() {
           </li>
           <li>
             <Link
-              href="#payment"
+              href="#Payment"
               className="text-xl font-black text-white hover:bg-primary"
             >
               Pricing
@@ -75,15 +75,25 @@ export default async function Navbar() {
       </div>
       <div className="navbar-end">
         {session ? (
-          <button className="btn btn-wide bg-primary">
-            <Link
-              href="/api/auth/signout"
-              className="btn btn-wide flex items-center bg-primary text-white hover:bg-primary/70"
-            >
-              <img src="./logo2.jpg" className="w-5" alt="applogo" />
-              <span className="ml-2">Sign Out</span>
-            </Link>
-          </button>
+          <>
+            <div>
+              <button className="btn btn-wide bg-primary">
+                <Link href="/Users" className="text-red-600">
+                  Member Are
+                </Link>
+              </button>
+            </div>
+
+            <button className="btn btn-wide bg-primary">
+              <Link
+                href="/api/auth/signout"
+                className="btn btn-wide flex items-center bg-primary text-white hover:bg-primary/70"
+              >
+                <img src="./logo2.jpg" className="w-5" alt="applogo" />
+                <span className="ml-2">Sign Out</span>
+              </Link>
+            </button>
+          </>
         ) : (
           <button className="btn btn-wide bg-primary">
             <Link
