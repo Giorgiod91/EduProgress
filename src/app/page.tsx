@@ -36,7 +36,7 @@ export default async function Home() {
       <section id="Payment" data-theme="">
         <PaymentCards />
       </section>
-      <section className="h-screen">
+      <section id="faq" className="h-screen">
         <Faq />
       </section>
       <section>

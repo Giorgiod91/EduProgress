@@ -37,8 +37,6 @@ const DashChart = ({ data }: DashChartProps) => {
     if (chartInstanceRef.current) {
       chartInstanceRef.current.destroy();
     }
-    //mostly code snippet from chart.js documentation
-    //data: data.map(() => userMonthlyGoal?.goal ?? null),
 
     // Create a new chart instance
     chartInstanceRef.current = new Chart(ctx, {
@@ -55,7 +53,7 @@ const DashChart = ({ data }: DashChartProps) => {
           },
           {
             label: "Completed Modules",
-            data: data.map(() => completedCount),
+            data: data.map((entry) => entry.progress),
             borderColor: "rgba(255, 99, 132, 1)",
             backgroundColor: "rgba(255, 99, 132, 0.2)",
             fill: true,
@@ -73,9 +71,9 @@ const DashChart = ({ data }: DashChartProps) => {
           y: {
             title: {
               display: true,
-              text: "Goal",
+              text: "Progress",
             },
-            beginAtZero: true,
+            beginAtZero: true, // Ensure the y-axis starts at zero
           },
         },
       },
@@ -87,7 +85,7 @@ const DashChart = ({ data }: DashChartProps) => {
         chartInstanceRef.current.destroy();
       }
     };
-  }, [data, completedCount]);
+  }, [data, completedCount, userMonthlyGoal]);
 
   return <canvas ref={chartRef} width="400" height="200"></canvas>;
 };

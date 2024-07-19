@@ -25,7 +25,7 @@ function LandingPage({}: Props) {
                 <a href="#Payment">Lets go!</a>
               </button>
               <p className="text-sm text-gray-400">
-                aviable on the following platforms
+                Soon aviable on the following platforms
               </p>
               <div className="mt-2 flex justify-center">
                 <FaApple
