@@ -15,8 +15,8 @@ function Demo({}: Props) {
         width="100%"
         height="auto"
       >
-        <source src="/demo3.mp4" type="video/mp4" />
-        <source src="/demo3.mp4" type="video/mp4" />
+        <source src="/demofinal.mp4" type="video/mp4" />
+        <source src="/demofinal.mp4" type="video/mp4" />
       </video>
       <div className="max-w-lg space-y-6 md:space-y-8">
         <h2 className="text-3xl font-black leading-tight tracking-tight md:text-5xl md:leading-tight">

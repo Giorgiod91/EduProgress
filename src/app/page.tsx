@@ -29,7 +29,7 @@ export default async function Home() {
       <section id="demo" className="h-3/5 p-20">
         <Demo />
       </section>
-      <section className="h-3/5 p-20">
+      <section className="h-3/5 bg-base-300 p-20">
         <Demo2 />
       </section>
 
