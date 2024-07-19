@@ -1,7 +1,19 @@
 # EduProgress
 ![image](https://github.com/user-attachments/assets/1b094b00-79e8-4d3c-8f8f-85b5054640a7)
 
-![image](https://github.com/user-attachments/assets/6530e502-bfd2-4ca2-a6c9-88716e5e33a5)
+
+-View of the MemberArea
+![image](https://github.com/user-attachments/assets/b7c656fe-3415-45f5-a244-1997d0f5b432)
+
+- CreateModule
+![image](https://github.com/user-attachments/assets/3fa95d1c-077e-445e-8a2e-938ac09aa336)
+
+
+- setGoal
+
+![image](https://github.com/user-attachments/assets/d8fb0ae4-d126-4acd-b2c8-b1e959ee036f)
+
+
 
 
 
