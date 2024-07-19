@@ -86,7 +86,10 @@ export default async function Navbar() {
         {session ? (
           <>
             <div>
-              <Link href="/Users" className="btn btn-wide bg-primary">
+              <Link
+                href="/Users"
+                className="btn btn-wide bg-primary text-white"
+              >
                 Member Are
               </Link>
             </div>

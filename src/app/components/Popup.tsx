@@ -19,7 +19,7 @@ function Popup({}: Props) {
     if (showPopup) {
       const timer = setTimeout(() => {
         setShowPopup(false);
-      }, 10000);
+      }, 12000);
 
       return () => clearTimeout(timer);
     }
@@ -29,8 +29,14 @@ function Popup({}: Props) {
     <div>
       {" "}
       {showPopup && (
-        <motion.div className="text-red w-61 fixed top-0 mt-2 h-[70px] translate-x-1/4 bg-white p-2 shadow-lg duration-500 group-hover:translate-x-0">
-          <p>For students: 50% off the Pro plan!</p>
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ duration: 0.5 }}
+          className="text-red w-61 fixed top-0 mt-2 h-[70px] translate-x-1/4 rounded-lg border-4 border-primary bg-gray-600 p-2 shadow-lg duration-500 group-hover:translate-x-0"
+        >
+          <p>For students: 50% off the Pro plan! 🌟😃🌟</p>
         </motion.div>
       )}
     </div>

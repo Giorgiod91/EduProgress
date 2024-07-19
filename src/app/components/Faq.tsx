@@ -128,10 +128,6 @@ function Faq({}: Props) {
                 <li>
                   coming soon: adding a leaderboard to compare your progress
                 </li>
-                <li>
-                  Data insights and analytics to understand your learning
-                  patterns and efficiency.
-                </li>
               </ul>
             </div>
           </div>
@@ -195,7 +191,7 @@ function Faq({}: Props) {
             onClick={() => handleClick(4)}
           >
             <span className="flex-1 text-base-content">
-              Is the Study Progress app free to use?
+              I am a Student and i want to get the student price
             </span>
             <svg
               className="ml-auto h-4 w-4 flex-shrink-0 fill-current"
@@ -228,13 +224,8 @@ function Faq({}: Props) {
             <div className="pb-5 leading-relaxed">
               <div className="space-y-2 leading-relaxed">
                 <p>
-                  Yes, the basic features of the Study Progress app are
-                  available for free. However, there may be premium features or
-                  upgrades that require a subscription or one-time purchase.
-                </p>
-                <p>
-                  You can start using the app for free and explore additional
-                  options based on your study needs and preferences.
+                  Sure you can get the student price, just send us an email with
+                  your student ID and i will give u the student price
                 </p>
               </div>
             </div>
@@ -281,12 +272,7 @@ function Faq({}: Props) {
               <div className="space-y-2 leading-relaxed">
                 <p>
                   For support with the Study Progress app, you can reach out via
-                  email at support@studyprogress.com or visit our community
-                  forum at forum.studyprogress.com.
-                </p>
-                <p>
-                  Our support team is available to assist you with any questions
-                  or issues you may encounter while using the app.
+                  email at foquss@web.de
                 </p>
               </div>
             </div>
