@@ -71,6 +71,14 @@ export default async function Navbar() {
               Pricing
             </Link>
           </li>
+          <li>
+            <Link
+              href="#faq"
+              className="text-xl font-black text-white hover:bg-primary"
+            >
+              FAQ
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="navbar-end">

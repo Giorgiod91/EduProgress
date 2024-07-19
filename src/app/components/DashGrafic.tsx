@@ -11,6 +11,7 @@ function DashGrafic({}: Props) {
   console.log(completedCountData);
   const { data: allData, isLoading: isLoadingAll } =
     api.module.getAll.useQuery();
+  const { data: userMonthlyGoal } = api.module.getUserGoal.useQuery();
   const totalModules = allData?.length || 0;
   // fetching the completed modules
   const temporary = allData?.filter((module) => module.completed)?.length || 0;
@@ -30,14 +31,16 @@ function DashGrafic({}: Props) {
           <div className="stat-value text-primary">
             {completedCountData?.completedCount || 0}
           </div>
-          <div className="stat-desc">21% more than last month</div>
+          <div className="stat-desc">You are awesome</div>
         </div>
 
         <div className="stat w-[200px]">
           <div className="stat-figure text-secondary"></div>
-          <div className="stat-title">Page Views</div>
-          <div className="stat-value text-secondary">2.6M</div>
-          <div className="stat-desc">21% more than last month</div>
+          <div className="stat-title">Your Goal</div>
+          <div className="stat-value text-secondary">
+            {userMonthlyGoal?.goal ?? null}
+          </div>
+          <div className="stat-desc">You can get there</div>
         </div>
 
         <div className="stat w-[200px]">

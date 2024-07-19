@@ -15,10 +15,7 @@ function Faq({}: Props) {
         <p className="mb-8 text-3xl font-extrabold text-base-content sm:text-4xl">
           Frequently Asked Questions
         </p>
-        <div className="text-base-content/80">
-          Placeholder text. Have another question? Contact me on Twitter or by
-          email.
-        </div>
+        <div className="text-base-content/80"></div>
       </div>
       <ul className="basis-1/2">
         <li>
@@ -27,13 +24,9 @@ function Faq({}: Props) {
             aria-expanded={activeIndex === 1 ? "true" : "false"}
             onClick={() => handleClick(1)}
           >
-            <span className="flex-1 text-base-content">
-              What is the Study Progress app about?
-            </span>
+            What is Study Progress app?
             <svg
-              className={`ml-auto h-4 w-4 flex-shrink-0 transform fill-current ${
-                activeIndex === 1 ? "rotate-90" : ""
-              }`}
+              className="ml-auto h-4 w-4 flex-shrink-0 fill-current"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -42,8 +35,17 @@ function Faq({}: Props) {
                 width="16"
                 height="2"
                 rx="1"
-                className="origin-center transform transition duration-200 ease-out"
-              />
+                className={`origin-center transform transition duration-200 ease-out ${
+                  activeIndex === 1 ? "rotate-90" : ""
+                }`}
+              ></rect>
+              <rect
+                y="7"
+                width="16"
+                height="2"
+                rx="1"
+                className="origin-center rotate-90 transform transition duration-200 ease-out"
+              ></rect>
             </svg>
           </button>
           <div
@@ -56,7 +58,7 @@ function Faq({}: Props) {
                 <p>
                   The Study Progress app helps you track your learning journey
                   efficiently. It includes features such as goal setting,
-                  progress tracking, personalized study plans, and more.
+                  progress tracking, and more.
                 </p>
                 <p>
                   You can organize your study materials, monitor your
@@ -70,7 +72,8 @@ function Faq({}: Props) {
         <li>
           <button
             className="plausible-event-name=What+features+does+it+offer? relative flex w-full items-center gap-2 border-t border-base-content/10 py-5 text-left text-base font-semibold md:text-lg"
-            aria-expanded="false"
+            aria-expanded={activeIndex === 2 ? "true" : "false"}
+            onClick={() => handleClick(2)}
           >
             <span className="flex-1 text-base-content">
               What features does the Study Progress app offer?
@@ -85,29 +88,50 @@ function Faq({}: Props) {
                 width="16"
                 height="2"
                 rx="1"
-                className="false origin-center transform transition duration-200 ease-out"
+                className={`origin-center transform transition duration-200 ease-out ${
+                  activeIndex === 2 ? "rotate-90" : ""
+                }`}
               ></rect>
               <rect
                 y="7"
                 width="16"
                 height="2"
                 rx="1"
-                className="false origin-center rotate-90 transform transition duration-200 ease-out"
+                className="origin-center rotate-90 transform transition duration-200 ease-out"
               ></rect>
             </svg>
           </button>
           <div
-            className="overflow-hidden opacity-80 transition-all duration-300 ease-in-out"
-            style={{ maxHeight: 0, opacity: 0 }}
+            className={`overflow-hidden opacity-80 transition-all duration-300 ease-in-out ${
+              activeIndex === 2 ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            }`}
           >
             <div className="pb-5 leading-relaxed">
               <p>The Study Progress app offers features like:</p>
               <ul className="list-disc space-y-2 pl-6">
-                <li>Goal setting for your study objectives.</li>
-                <li>Progress tracking to monitor your learning milestones.</li>
-                <li>Personalized study plans tailored to your needs.</li>
-                <li>Integration with study materials and resources.</li>
-                <li>Reminders and notifications to keep you on track.</li>
+                <li>
+                  Goal setting for your study objectives, ensuring you stay
+                  focused on your targets.
+                </li>
+                <li>
+                  Progress tracking to monitor your learning milestones and
+                  visualize your achievements.
+                </li>
+                <li>
+                  Reminders and notifications to keep you on track and
+                  motivated. coming soon
+                </li>
+                <li>
+                  Interactive dashboards to review your progress and identify
+                  areas for improvement.
+                </li>
+                <li>
+                  coming soon: adding a leaderboard to compare your progress
+                </li>
+                <li>
+                  Data insights and analytics to understand your learning
+                  patterns and efficiency.
+                </li>
               </ul>
             </div>
           </div>
@@ -115,7 +139,8 @@ function Faq({}: Props) {
         <li>
           <button
             className="plausible-event-name=Can+I+customize+it? relative flex w-full items-center gap-2 border-t border-base-content/10 py-5 text-left text-base font-semibold md:text-lg"
-            aria-expanded="false"
+            aria-expanded={activeIndex === 3 ? "true" : "false"}
+            onClick={() => handleClick(3)}
           >
             <span className="flex-1 text-base-content">
               Can I customize the Study Progress app?
@@ -130,20 +155,23 @@ function Faq({}: Props) {
                 width="16"
                 height="2"
                 rx="1"
-                className="false origin-center transform transition duration-200 ease-out"
+                className={`origin-center transform transition duration-200 ease-out ${
+                  activeIndex === 3 ? "rotate-90" : ""
+                }`}
               ></rect>
               <rect
                 y="7"
                 width="16"
                 height="2"
                 rx="1"
-                className="false origin-center rotate-90 transform transition duration-200 ease-out"
+                className="origin-center rotate-90 transform transition duration-200 ease-out"
               ></rect>
             </svg>
           </button>
           <div
-            className="overflow-hidden opacity-80 transition-all duration-300 ease-in-out"
-            style={{ maxHeight: 0, opacity: 0 }}
+            className={`overflow-hidden opacity-80 transition-all duration-300 ease-in-out ${
+              activeIndex === 3 ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            }`}
           >
             <div className="pb-5 leading-relaxed">
               <div className="space-y-2 leading-relaxed">
@@ -163,7 +191,8 @@ function Faq({}: Props) {
         <li>
           <button
             className="plausible-event-name=Is+it+free+to+use? relative flex w-full items-center gap-2 border-t border-base-content/10 py-5 text-left text-base font-semibold md:text-lg"
-            aria-expanded="false"
+            aria-expanded={activeIndex === 4 ? "true" : "false"}
+            onClick={() => handleClick(4)}
           >
             <span className="flex-1 text-base-content">
               Is the Study Progress app free to use?
@@ -178,20 +207,23 @@ function Faq({}: Props) {
                 width="16"
                 height="2"
                 rx="1"
-                className="false origin-center transform transition duration-200 ease-out"
+                className={`origin-center transform transition duration-200 ease-out ${
+                  activeIndex === 4 ? "rotate-90" : ""
+                }`}
               ></rect>
               <rect
                 y="7"
                 width="16"
                 height="2"
                 rx="1"
-                className="false origin-center rotate-90 transform transition duration-200 ease-out"
+                className="origin-center rotate-90 transform transition duration-200 ease-out"
               ></rect>
             </svg>
           </button>
           <div
-            className="overflow-hidden opacity-80 transition-all duration-300 ease-in-out"
-            style={{ maxHeight: 0, opacity: 0 }}
+            className={`overflow-hidden opacity-80 transition-all duration-300 ease-in-out ${
+              activeIndex === 4 ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            }`}
           >
             <div className="pb-5 leading-relaxed">
               <div className="space-y-2 leading-relaxed">
@@ -211,7 +243,8 @@ function Faq({}: Props) {
         <li>
           <button
             className="plausible-event-name=How+can+I+get+support? relative flex w-full items-center gap-2 border-t border-base-content/10 py-5 text-left text-base font-semibold md:text-lg"
-            aria-expanded="false"
+            aria-expanded={activeIndex === 5 ? "true" : "false"}
+            onClick={() => handleClick(5)}
           >
             <span className="flex-1 text-base-content">
               How can I get support for the Study Progress app?
@@ -226,20 +259,23 @@ function Faq({}: Props) {
                 width="16"
                 height="2"
                 rx="1"
-                className="false origin-center transform transition duration-200 ease-out"
+                className={`origin-center transform transition duration-200 ease-out ${
+                  activeIndex === 5 ? "rotate-90" : ""
+                }`}
               ></rect>
               <rect
                 y="7"
                 width="16"
                 height="2"
                 rx="1"
-                className="false origin-center rotate-90 transform transition duration-200 ease-out"
+                className="origin-center rotate-90 transform transition duration-200 ease-out"
               ></rect>
             </svg>
           </button>
           <div
-            className="overflow-hidden opacity-80 transition-all duration-300 ease-in-out"
-            style={{ maxHeight: 0, opacity: 0 }}
+            className={`overflow-hidden opacity-80 transition-all duration-300 ease-in-out ${
+              activeIndex === 5 ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            }`}
           >
             <div className="pb-5 leading-relaxed">
               <div className="space-y-2 leading-relaxed">
