@@ -14,7 +14,7 @@ function DashBoard({}: Props) {
     { date: "2023-07-03", progress: 30 },
   ];
   return (
-    <div className="min-h-screen bg-[#758694]" data-theme="">
+    <div className="min-h-screen bg-gray-100" data-theme="">
       <h1 className="mb-5 mt-10 text-center text-5xl font-bold text-primary">
         Dashboard
       </h1>
@@ -25,7 +25,10 @@ function DashBoard({}: Props) {
           <h1 className="mb-4 text-xl font-semibold text-primary">
             Navigation
           </h1>
-          <ul className="menu w-full rounded-box bg-base-200">
+          <ul
+            className="menu w-full rounded-box bg-base-200"
+            data-theme="light"
+          >
             <li>
               <a className="flex items-center gap-2">
                 <svg
@@ -84,7 +87,7 @@ function DashBoard({}: Props) {
               </a>
             </li>
             <li>
-              <a className="flex items-center gap-2">
+              <a href="#goal" className="flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
