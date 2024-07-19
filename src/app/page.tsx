@@ -39,9 +39,6 @@ export default async function Home() {
       <section id="faq" className="h-screen">
         <Faq />
       </section>
-      <section>
-        <SetGoals />
-      </section>
     </main>
   );
 }
