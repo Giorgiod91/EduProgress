@@ -8,6 +8,7 @@ import StudyBoardDb from "./StudyBoardDb";
 type Props = {};
 
 function DashBoard({}: Props) {
+  //:TODO: add the option to switch between monthly and weekly goal
   const sampleData = [
     { date: "2023-07-01", progress: 10 },
     { date: "2023-07-02", progress: 20 },
