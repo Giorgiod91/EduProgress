@@ -113,7 +113,7 @@ export default async function Navbar() {
           </button>
         )}
       </div>
-      <div className="sticky">
+      <div className="sticky p-4">
         <Popup />
       </div>
     </div>
