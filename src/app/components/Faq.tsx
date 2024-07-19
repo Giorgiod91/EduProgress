@@ -119,14 +119,14 @@ function Faq({}: Props) {
                 </li>
                 <li>
                   Reminders and notifications to keep you on track and
-                  motivated. coming soon
+                  motivated. (coming soon)
                 </li>
                 <li>
                   Interactive dashboards to review your progress and identify
                   areas for improvement.
                 </li>
                 <li>
-                  coming soon: adding a leaderboard to compare your progress
+                  (coming soon) adding a leaderboard to compare your progress.
                 </li>
               </ul>
             </div>
@@ -177,8 +177,8 @@ function Faq({}: Props) {
                   your preferences.
                 </p>
                 <p>
-                  You can also integrate additional features or third-party
-                  tools that complement your learning style and needs.
+                  more coming soon, like adding a leaderboard to compare and so
+                  on...
                 </p>
               </div>
             </div>
@@ -191,7 +191,7 @@ function Faq({}: Props) {
             onClick={() => handleClick(4)}
           >
             <span className="flex-1 text-base-content">
-              I am a Student and i want to get the student price
+              I am a student and I want to get the student price.
             </span>
             <svg
               className="ml-auto h-4 w-4 flex-shrink-0 fill-current"
@@ -224,8 +224,9 @@ function Faq({}: Props) {
             <div className="pb-5 leading-relaxed">
               <div className="space-y-2 leading-relaxed">
                 <p>
-                  Sure you can get the student price, just send us an email with
-                  your student ID and i will give u the student price
+                  Sure, you can get the student price. Just send us an email
+                  with your student ID, and we will provide you with the student
+                  price.
                 </p>
               </div>
             </div>
