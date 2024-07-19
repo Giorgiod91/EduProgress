@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { use, useEffect } from "react";
 import { getServerAuthSession } from "~/server/auth";
+import Popup from "./Popup";
 
 export default async function Navbar() {
   const session = await getServerAuthSession();
@@ -85,11 +86,9 @@ export default async function Navbar() {
         {session ? (
           <>
             <div>
-              <button className="btn btn-wide bg-primary">
-                <Link href="/Users" className="text-red-600">
-                  Member Are
-                </Link>
-              </button>
+              <Link href="/Users" className="btn btn-wide bg-primary">
+                Member Are
+              </Link>
             </div>
 
             <button className="btn btn-wide bg-primary">
@@ -113,6 +112,9 @@ export default async function Navbar() {
             </Link>
           </button>
         )}
+      </div>
+      <div className="sticky">
+        <Popup />
       </div>
     </div>
   );
