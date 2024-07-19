@@ -4,6 +4,7 @@ import DashBoard from "../components/DashBoard";
 import CreateModule from "../components/CreateModule";
 import { getServerAuthSession } from "~/server/auth";
 import Link from "next/link";
+import SetGoals from "../components/SetGoals";
 
 type Props = {};
 
@@ -29,6 +30,9 @@ async function page({}: Props) {
           </section>
           <section id="Create" className="">
             <CreateModule />
+            <section id="goal">
+              <SetGoals />
+            </section>
           </section>
         </>
       ) : (
