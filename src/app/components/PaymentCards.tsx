@@ -4,11 +4,11 @@ export const plans = [
   {
     link:
       process.env.NODE_ENV === "development"
-        ? "https://buy.stripe.com/test_dR6cON1l6ep1eoU145"
+        ? "https://buy.stripe.com/test_6oEcON6Fq94HbcIdQV"
         : "",
     priceId:
       process.env.NODE_ENV === "development"
-        ? "price_1PU9UuLwhF7s81bJTip8CDIc"
+        ? "price_1PejT9LwhF7s81bJcS1R4zfg"
         : "",
     price: 5.99,
     name: "Basic",
@@ -18,11 +18,11 @@ export const plans = [
   {
     link:
       process.env.NODE_ENV === "development"
-        ? "https://buy.stripe.com/test_9AQeWVgg05SvfsYdQS"
+        ? "https://buy.stripe.com/test_3cs0218NydkXbcI4gm"
         : "",
     priceId:
       process.env.NODE_ENV === "development"
-        ? "price_1PU9gaLwhF7s81bJHedNiOl7"
+        ? "price_1PejWjLwhF7s81bJDcYZPBJF"
         : "",
     price: 11.99,
     name: "Pro",
