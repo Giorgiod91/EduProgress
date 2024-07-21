@@ -1,3 +1,4 @@
+import Stripe from "stripe";
 import { moduleRouter } from "~/server/api/routers/module";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
 
