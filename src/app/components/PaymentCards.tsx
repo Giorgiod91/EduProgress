@@ -7,43 +7,40 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
 
 const plans = [
   {
-    priceId: "price_1PejT9LwhF7s81bJcS1R4zfg",
+    link:
+      process.env.NODE_ENV === "development"
+        ? "https://buy.stripe.com/test_6oEcON6Fq94HbcIdQV"
+        : "",
+    priceId:
+      process.env.NODE_ENV === "development"
+        ? "price_1PejT9LwhF7s81bJcS1R4zfg"
+        : "",
     price: 5.99,
     name: "Basic",
     access: " ✔️ 1 year access",
   },
   {
-    priceId: "price_1PejWjLwhF7s81bJDcYZPBJF",
-    price: 11.99,
+    link:
+      process.env.NODE_ENV === "development"
+        ? "https://buy.stripe.com/test_3cs0218NydkXbcI4gm"
+        : "",
+    priceId:
+      process.env.NODE_ENV === "development"
+        ? "price_1PejWjLwhF7s81bJDcYZPBJF"
+        : "",
+    price: 9.99,
     name: "Pro",
     access: " ✔️ Lifetime access",
   },
 ];
 
-async function handleCheckout(priceId: string) {
-  const res = await fetch("/api/stripe/route", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ priceId }),
-  });
-
-  const { id } = await res.json();
-
-  const stripe = await stripePromise;
-
-  if (!stripe) {
-    console.error("Stripe.js failed to load.");
-    return;
+const handleCheckout = async (link: string) => {
+  if (link) {
+    window.location.href = link;
+  } else {
+    console.error("Stripe checkout link is not defined.");
   }
-
-  const result = await stripe.redirectToCheckout({ sessionId: id });
-
-  if (result.error) {
-    console.error("Error redirecting to checkout:", result.error);
-  }
-}
+};
 
 function PaymentCards() {
   return (
@@ -80,7 +77,7 @@ function PaymentCards() {
               <li>{plan.access}</li>
             </ul>
             <button
-              onClick={() => handleCheckout(plan.priceId)}
+              onClick={() => handleCheckout(plan.link)}
               className="mt-4 rounded bg-blue-500 px-4 py-2 text-white"
             >
               Buy Now
