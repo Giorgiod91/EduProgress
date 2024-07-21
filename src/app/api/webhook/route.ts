@@ -10,6 +10,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 
 const endpointSecret = process.env.WEBHOOK_SECRET;
 
+// mostly copied from stripe docs and chatgpt example
+
 const fullfillOrder = async (
   data: Stripe.LineItem[],
   customerEmail: string,
