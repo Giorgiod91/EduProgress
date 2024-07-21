@@ -22,6 +22,7 @@
 
   # difficulties 
   - showcase individuel progress for every user connected to the database (mongoDB) had to make multiple mutations with trpc
+  - implementing Stripe with webhooks and trpc and also be connected to my mongoDB database. Learned a lot about implementing Stripe
 
 - TODO:add feedback feature for costumers
 
