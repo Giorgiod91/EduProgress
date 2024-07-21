@@ -1,35 +1,50 @@
-import React from "react";
+"use client";
 
-export const plans = [
+import { useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
+
+const plans = [
   {
-    link:
-      process.env.NODE_ENV === "development"
-        ? "https://buy.stripe.com/test_6oEcON6Fq94HbcIdQV"
-        : "",
-    priceId:
-      process.env.NODE_ENV === "development"
-        ? "price_1PejT9LwhF7s81bJcS1R4zfg"
-        : "",
+    priceId: "price_1PejT9LwhF7s81bJcS1R4zfg",
     price: 5.99,
     name: "Basic",
     access: " ✔️ 1 year access",
   },
-
   {
-    link:
-      process.env.NODE_ENV === "development"
-        ? "https://buy.stripe.com/test_3cs0218NydkXbcI4gm"
-        : "",
-    priceId:
-      process.env.NODE_ENV === "development"
-        ? "price_1PejWjLwhF7s81bJDcYZPBJF"
-        : "",
+    priceId: "price_1PejWjLwhF7s81bJDcYZPBJF",
     price: 11.99,
     name: "Pro",
     access: " ✔️ Lifetime access",
   },
 ];
-//${plan.price}
+
+async function handleCheckout(priceId: string) {
+  const res = await fetch("/api/stripe/route", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ priceId }),
+  });
+
+  const { id } = await res.json();
+
+  const stripe = await stripePromise;
+
+  if (!stripe) {
+    console.error("Stripe.js failed to load.");
+    return;
+  }
+
+  const result = await stripe.redirectToCheckout({ sessionId: id });
+
+  if (result.error) {
+    console.error("Error redirecting to checkout:", result.error);
+  }
+}
+
 function PaymentCards() {
   return (
     <div className="mx-auto max-w-7xl px-8 py-24">
@@ -64,13 +79,12 @@ function PaymentCards() {
               <li>✔️ One-time payment</li>
               <li>{plan.access}</li>
             </ul>
-            <a
-              href={plan.link}
-              className="group btn btn-primary btn-block text-white hover:bg-primary/70"
+            <button
+              onClick={() => handleCheckout(plan.priceId)}
+              className="mt-4 rounded bg-blue-500 px-4 py-2 text-white"
             >
-              <img src="./logo2.jpg" className="w-5" alt="applogo" />
               Buy Now
-            </a>
+            </button>
           </div>
         ))}
       </div>
