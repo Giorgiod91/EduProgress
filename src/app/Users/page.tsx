@@ -29,8 +29,17 @@ async function page({}: Props) {
             <DashBoard />
           </section>
           <section id="Create" className="">
+            <div className="just flex items-center">
+              <a href="#Board">
+                <h1 className="text-7xl">back to DaashBoard ⬆️</h1>
+              </a>
+            </div>
+
             <CreateModule />
             <section id="goal">
+              <a href="#Board">
+                <h1 className="text-7xl">back to DaashBoard ⬆️</h1>
+              </a>
               <SetGoals />
             </section>
           </section>
