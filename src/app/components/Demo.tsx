@@ -21,9 +21,10 @@ function Demo() {
           Track your Study
         </h2>
         <p className="text-base-content-secondary leading-relaxed">
-          Keep track of how much you've learned. Add new modules to your study
-          plan and mark them as finished.
+          Keep track of how much you&apos;ve learned. Add new modules to your
+          study plan and mark them as finished.
         </p>
+
         <a
           href="#Payment"
           className="btn btn-primary btn-block shadow-lg md:btn-wide hover:bg-primary/70"

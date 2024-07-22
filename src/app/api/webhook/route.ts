@@ -53,7 +53,7 @@ const handleCompletedCheckoutSession = async (event: Stripe.Event) => {
 
     const ordersFulfilled = await fulfillOrder(
       lineItems.data,
-      session.customer_details?.email || "",
+      session.customer_details?.email ?? "",
     );
 
     if (ordersFulfilled) return true;

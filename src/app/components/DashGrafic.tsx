@@ -28,7 +28,7 @@ function DashGrafic() {
           <div className="stat-figure text-primary"></div>
           <div className="stat-title">Total Modules Done</div>
           <div className="stat-value text-primary">
-            {completedCountData?.completedCount || 0}
+            {completedCountData?.completedCount ?? 0}
           </div>
           <div className="stat-desc">You are awesome</div>
         </div>
