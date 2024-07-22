@@ -3,10 +3,10 @@ import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2024-06-20",
 });
-const endpointSecret = process.env.WEBHOOK_SECRET;
+const endpointSecret = process.env.WEBHOOK_SECRET!;
 
 // Function to fulfill the order
 const fulfillOrder = async (data: Stripe.LineItem[], customerEmail: string) => {
@@ -24,7 +24,7 @@ const fulfillOrder = async (data: Stripe.LineItem[], customerEmail: string) => {
     await prisma.subscription.create({
       data: {
         userId: user.id,
-        stripeSessionId: data[0]!.id ?? "",
+        stripeSessionId: data[0]?.id ?? "",
         status: "paid",
       },
     });
@@ -82,8 +82,12 @@ export async function POST(req: Request) {
 
   try {
     event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
-  } catch (err) {
-    console.error("Webhook signature verification failed:", err);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error("Webhook signature verification failed:", err.message);
+    } else {
+      console.error("Webhook signature verification failed:", err);
+    }
     return NextResponse.json(
       { error: "Webhook signature verification failed" },
       { status: 400 },
