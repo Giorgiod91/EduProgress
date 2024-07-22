@@ -24,7 +24,7 @@ const fulfillOrder = async (data: Stripe.LineItem[], customerEmail: string) => {
     await prisma.subscription.create({
       data: {
         userId: user.id,
-        stripeSessionId: data[0]?.id ?? "",
+        stripeSessionId: data[0]!.id ?? "",
         status: "paid",
       },
     });
@@ -82,7 +82,7 @@ export async function POST(req: Request) {
 
   try {
     event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
-  } catch (err: any) {
+  } catch (err) {
     console.error("Webhook signature verification failed:", err);
     return NextResponse.json(
       { error: "Webhook signature verification failed" },
