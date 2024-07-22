@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-function Banner1({}: Props) {
+function Banner1() {
   return (
     <div className="" data-theme="light">
       <section className="p-10">

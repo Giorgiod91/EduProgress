@@ -6,9 +6,7 @@ import { getServerAuthSession } from "~/server/auth";
 import Link from "next/link";
 import SetGoals from "../components/SetGoals";
 
-type Props = {};
-
-async function page({}: Props) {
+async function page() {
   const session = await getServerAuthSession();
   return (
     <div className="flex min-h-screen flex-col">

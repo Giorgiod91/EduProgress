@@ -3,28 +3,26 @@ import React, { use, useEffect, useState } from "react";
 import { set } from "zod";
 import { api } from "~/trpc/react";
 
-type Props = {};
-
 type StyleProps = {
   "--value": number;
   "--size": string;
   "--thickness": string;
 } & React.CSSProperties;
 
-function DashGrafik2({}: Props) {
+function DashGrafik2() {
   const { data: completedData, isLoading: isLoadingCompleted } =
     api.module.getCompletedCount.useQuery();
   const { data: completedCountData } = api.module.getCompletedCount.useQuery();
   console.log(completedCountData);
   const { data: allData, isLoading: isLoadingAll } =
     api.module.getAll.useQuery();
-  const totalModules = allData?.length || 0;
+  const totalModules = allData?.length ?? 0;
   // fetching the completed modules
-  const temporary = allData?.filter((module) => module.completed)?.length || 0;
+  const temporary = allData?.filter((module) => module.completed)?.length ?? 0;
   // fetching the not completed modules
   const notcompleted =
-    allData?.filter((module) => !module.completed)?.length || 0;
-  const completedModules = completedData?.completedCount || 0;
+    allData?.filter((module) => !module.completed)?.length ?? 0;
+  const completedModules = completedData?.completedCount ?? 0;
   // calculating the percentage of the completed modules
   const completionPercentage =
     totalModules > 0 ? ((temporary / totalModules) * 100).toFixed(2) : 0;

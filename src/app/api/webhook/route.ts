@@ -24,7 +24,7 @@ const fulfillOrder = async (data: Stripe.LineItem[], customerEmail: string) => {
     await prisma.subscription.create({
       data: {
         userId: user.id,
-        stripeSessionId: data[0]?.id || "",
+        stripeSessionId: data[0]?.id ?? "",
         status: "paid",
       },
     });

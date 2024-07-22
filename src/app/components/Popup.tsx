@@ -2,9 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-type Props = {};
-
-function Popup({}: Props) {
+function Popup() {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {

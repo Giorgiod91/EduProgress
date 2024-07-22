@@ -5,9 +5,7 @@ import StudyBoard from "./StudyBoard";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
-type Props = {};
-
-function LandingPage({}: Props) {
+function LandingPage() {
   return (
     <div data-theme="" className="h-screen text-white">
       <div className="container mx-auto flex h-screen flex-col space-x-5 p-5 lg:flex-row">

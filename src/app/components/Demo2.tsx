@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-function Demo2({}: Props) {
+function Demo2() {
   return (
     <div
       className="tooltip tooltip-open tooltip-primary mx-auto flex max-w-6xl flex-col gap-8 border-4 border-base-content/20 md:flex-row md:gap-16"

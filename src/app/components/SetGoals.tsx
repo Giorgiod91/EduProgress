@@ -2,9 +2,7 @@
 import React, { useState } from "react";
 import { api } from "~/trpc/react";
 
-type Props = {};
-
-function SetGoals({}: Props) {
+function SetGoals() {
   const createGoalMutation = api.module.updateMonthlyGoal.useMutation();
   const [goal, setGoal] = useState(0);
 
