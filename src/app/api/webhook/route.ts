@@ -1,39 +1,30 @@
-import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
+import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: "2024-06-20",
 });
-
 const endpointSecret = process.env.WEBHOOK_SECRET;
 
-// mostly copied from stripe docs and chatgpt example
-
-const fullfillOrder = async (
-  data: Stripe.LineItem[],
-  customerEmail: string,
-) => {
+// Function to fulfill the order
+const fulfillOrder = async (data: Stripe.LineItem[], customerEmail: string) => {
   try {
-    // Check if the user with the provided email exists
     let user = await prisma.user.findUnique({
       where: { email: customerEmail },
     });
 
-    // If the user does not exist, create a new user
     if (!user) {
       user = await prisma.user.create({
         data: { email: customerEmail },
       });
     }
 
-    // Create a subscription record for the user
     await prisma.subscription.create({
       data: {
         userId: user.id,
-        stripeSessionId: data[0]?.id || "", // Provide a default value if `data[0]?.id` is `undefined`
+        stripeSessionId: data[0]?.id || "",
         status: "paid",
       },
     });
@@ -45,6 +36,7 @@ const fullfillOrder = async (
   }
 };
 
+// Function to handle completed checkout session
 const handleCompletedCheckoutSession = async (event: Stripe.Event) => {
   try {
     const session = event.data.object as Stripe.Checkout.Session;
@@ -59,16 +51,14 @@ const handleCompletedCheckoutSession = async (event: Stripe.Event) => {
 
     if (!lineItems) return false;
 
-    const ordersFullfilled = await fullfillOrder(
+    const ordersFulfilled = await fulfillOrder(
       lineItems.data,
       session.customer_details?.email || "",
     );
 
-    if (ordersFullfilled) return true;
+    if (ordersFulfilled) return true;
 
     console.error("Failed to fulfill order");
-    console.error(JSON.stringify(session));
-    console.error(JSON.stringify(lineItems));
     return false;
   } catch (error) {
     console.error("Error in handleCompletedCheckoutSession:", error);
@@ -76,11 +66,7 @@ const handleCompletedCheckoutSession = async (event: Stripe.Event) => {
   }
 };
 
-const handleCustomerSubscriptionUpdate = async (event: Stripe.Event) => {
-  // Implement your logic to handle customer subscription update
-};
-
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   const rawBody = await req.text();
   const sig = req.headers.get("stripe-signature");
 
