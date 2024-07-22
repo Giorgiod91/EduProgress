@@ -1,9 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-type Props = {};
-
-function StudyBoard({}: Props) {
+function StudyBoard() {
   const [hover, setHover] = useState(true);
   const [tasks, setTasks] = useState([
     {

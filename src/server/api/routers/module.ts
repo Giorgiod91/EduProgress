@@ -124,7 +124,7 @@ export const moduleRouter = createTRPCRouter({
       where: { id: ctx.session.user.id },
     });
 
-    return { completedCount: user?.completedModuleCount || 0 };
+    return { completedCount: user?.completedModuleCount ?? 0 };
   }),
 
   getUserGoal: protectedProcedure.query(async ({ ctx }) => {
@@ -132,6 +132,6 @@ export const moduleRouter = createTRPCRouter({
       where: { id: ctx.session.user.id },
     });
 
-    return { goal: user?.monthlyGoal || 0 };
+    return { goal: user?.monthlyGoal ?? 0 };
   }),
 });

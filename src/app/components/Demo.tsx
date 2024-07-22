@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-function Demo({}: Props) {
+function Demo() {
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:gap-16">
       <video

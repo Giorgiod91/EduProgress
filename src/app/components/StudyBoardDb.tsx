@@ -2,9 +2,7 @@
 import React, { useState } from "react";
 import { api } from "~/trpc/react";
 
-type Props = {};
-
-function StudyBoardDb({}: Props) {
+function StudyBoardDb() {
   const { data: tasks, isLoading, refetch } = api.module.getAll.useQuery();
   const { data: completedCountData, refetch: refetchCompletedCount } =
     api.module.getCompletedCount.useQuery();
@@ -90,7 +88,7 @@ function StudyBoardDb({}: Props) {
                                 : "bg-gray-100 text-gray-800"
                             }`}
                           >
-                            {task.color || "No Color"}
+                            {task.color ?? "No Color"}
                           </span>
                         </td>
                         <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500"></td>

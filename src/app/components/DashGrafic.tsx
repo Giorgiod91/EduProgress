@@ -3,9 +3,7 @@ import React from "react";
 import { api } from "~/trpc/react";
 import SetGoals from "./SetGoals";
 
-type Props = {};
-
-function DashGrafic({}: Props) {
+function DashGrafic() {
   const { data: completedData, isLoading: isLoadingCompleted } =
     api.module.getCompletedCount.useQuery();
   const { data: completedCountData } = api.module.getCompletedCount.useQuery();
@@ -13,13 +11,13 @@ function DashGrafic({}: Props) {
   const { data: allData, isLoading: isLoadingAll } =
     api.module.getAll.useQuery();
   const { data: userMonthlyGoal } = api.module.getUserGoal.useQuery();
-  const totalModules = allData?.length || 0;
+  const totalModules = allData?.length ?? 0;
   // fetching the completed modules
-  const temporary = allData?.filter((module) => module.completed)?.length || 0;
+  const temporary = allData?.filter((module) => module.completed)?.length ?? 0;
   // fetching the not completed modules
   const notcompleted =
-    allData?.filter((module) => !module.completed)?.length || 0;
-  const completedModules = completedData?.completedCount || 0;
+    allData?.filter((module) => !module.completed)?.length ?? 0;
+  const completedModules = completedData?.completedCount ?? 0;
   // calculating the percentage of the completed modules
   const completionPercentage =
     totalModules > 0 ? ((temporary / totalModules) * 100).toFixed(2) : 0;

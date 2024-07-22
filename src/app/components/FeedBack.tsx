@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-function FeedBack({}: Props) {
+function FeedBack() {
   return (
     <div>
       <h1>What Features should i add or improve ?</h1>

@@ -2,9 +2,7 @@
 import React, { useState } from "react";
 import { api } from "~/trpc/react";
 
-type Props = {};
-
-function CreateModule({}: Props) {
+function CreateModule() {
   const [title, setTitle] = useState("");
   const [subject, setSubject] = useState("");
   const [color, setColor] = useState("");

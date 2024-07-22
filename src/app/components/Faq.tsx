@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
 
-type Props = {};
-
-function Faq({}: Props) {
+function Faq() {
   const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
   const handleClick = (index: number) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
