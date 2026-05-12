@@ -7,8 +7,6 @@ import Faq from "./components/Faq";
 import Demo2 from "./components/Demo2";
 
 export default async function Home() {
-  const session = await getServerAuthSession();
-
   return (
     <main className="flex min-h-screen flex-col">
       {/* Fixed navbar — adds pt-16 offset handled inside LandingPage */}
